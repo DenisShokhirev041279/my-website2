@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denis Shokhirev - Professioneller Content-Ersteller</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Вставьте сюда содержимое styles.css */
+        /* :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --background-color: #ecf0f1;
+            --accent-color: #e74c3c;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+        }
+
+        .language-switcher {
+            text-align: right;
+            margin-top: 1rem;
+        }
+
+        .language-switcher button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-switcher button:hover {
+            background-color: var(--accent-color);
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+
+        .profile-image {
+            max-width: 300px;
+            border-radius: 50%;
+            display: block;
+            margin: 2rem auto;
+        }
+
+        .job, .education, .portfolio-item {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin-bottom: 0.5rem;
+            }
+        } */
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home" data-translate="home">Home</a></li>
+                <li><a href="pages/about.html" data-translate="about">Über mich</a></li>
+                <li><a href="pages/services.html" data-translate="services">Dienstleistungen</a></li>
+                <li><a href="pages/experience.html" data-translate="experience">Erfahrung</a></li>
+                <li><a href="pages/education.html" data-translate="education">Bildung & Fähigkeiten</a></li>
+                <li><a href="pages/portfolio.html" data-translate="portfolio">Portfolio</a></li>
+                <li><a href="pages/contact.html" data-translate="contact">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div class="language-switcher">
+            <button onclick="changeLanguage('de')">DE</button>
+            <button onclick="changeLanguage('en')">EN</button>
+            <button onclick="changeLanguage('ru')">RU</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Denis Shokhirev</h1>
+            <h2>Professioneller Content-Ersteller</h2>
+            <p>Willkommen auf meiner Website! Ich biete hochwertige Content-Erstellung und Bearbeitung in mehreren Sprachen.</p>
+            <img src="images/denis-shokhirev.jpg" alt="Denis Shokhirev" class="profile-image">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Denis Shokhirev. Alle Rechte vorbehalten.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/shohirevdenis/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/shohirevdenis/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script>
+        const translations = {
+            de: {
+                home: "Startseite",
+                about: "Über mich",
+                services: "Dienstleistungen",
+                experience: "Erfahrung",
+                education: "Bildung & Fähigkeiten",
+                portfolio: "Portfolio",
+                contact: "Kontakt"
+            },
+            en: {
+                home: "Home",
+                about: "About",
+                services: "Services",
+                experience: "Experience",
+                education: "Education & Skills",
+                portfolio: "Portfolio",
+                contact: "Contact"
+            },
+            ru: {
+                home: "Главная",
+                about: "Обо мне",
+                services: "Услуги",
+                experience: "Опыт",
+                education: "Образование и навыки",
+                portfolio: "Портфолио",
+                contact: "Контакты"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Вызовите эту функцию при загрузке страницы, чтобы установить начальный язык
+        document.addEventListener('DOMContentLoaded', () => changeLanguage('de'));
+    </script>
+</body>
+</html>
